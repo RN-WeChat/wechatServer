@@ -4,10 +4,6 @@ const request = require('request')
 const config = require('../config')
 const db = require('../db/user')
 
-router.get('*', (req, res) => {
-  res.status(200).json({ msg: 'success' })
-})
-
 router.post('/message', (req, res) => {
   const { body = {} } = req
   const { messageTemplate = {}, robotApiconfig = {} } = config

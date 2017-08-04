@@ -14,7 +14,7 @@ app.use(timeout('100s'))
 app.use(cookieParse())
 app.use(bodyParse.json())
 app.use(bodyParse.urlencoded({ extended: true }))
-app.use('user', user)
+app.use('/user', user)
 
 app.listen(port, () => {
   console.info('server running http://%s:%s', ip.address(), port)
