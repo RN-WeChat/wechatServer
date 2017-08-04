@@ -8,6 +8,7 @@ const cors = require('cors')
 
 const port = process.env.port || '7000'
 const user = require('./router/user')
+const socketInit = require('./snapper')
 
 app.use(cors())
 app.use(timeout('100s'))
@@ -16,6 +17,8 @@ app.use(bodyParse.json())
 app.use(bodyParse.urlencoded({ extended: true }))
 app.use('/user', user)
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.info('server running http://%s:%s', ip.address(), port)
 })
+
+socketInit(server)

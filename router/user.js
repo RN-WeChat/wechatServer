@@ -29,7 +29,7 @@ router.post('/message', (req, res) => {
       if (result.body.url) {
         reply.url = result.body.url
       }
-      return res.status(200).json({ message: reply })
+      return res.status(200).json(reply)
     }
   })
 })
